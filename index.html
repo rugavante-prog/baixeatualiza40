@@ -30,6 +30,19 @@ h2{font-size:clamp(28px,5vw,42px);font-weight:800;text-align:center;margin-botto
 .sub{color:var(--cinza);text-align:center;max-width:640px;margin:0 auto 36px;font-size:19px}
 section{padding:64px 0}
 
+/* black friday */
+.bf{background:#000;color:#fff;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;padding:10px 16px;font-size:15px;text-align:center}
+.bf-tag{color:var(--amarelo);font-weight:900;letter-spacing:.06em}
+.bf-sep{opacity:.4}
+.bf-fim{opacity:.75}
+.bf-show{display:none}
+.bf-btn{background:#fff;color:#000;text-decoration:none;font-weight:700;border-radius:999px;padding:6px 16px}
+.topo{background:#fff;border-bottom:1px solid var(--borda)}
+.topo .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:800;font-size:22px;color:var(--escuro)}
+.logo b{color:var(--roxo)}
+.topo-btn{background:var(--escuro);color:#fff;text-decoration:none;font-weight:700;border-radius:999px;padding:10px 20px;font-size:15px}
+@media (max-width:820px){.bf{gap:7px;font-size:12.5px;flex-wrap:nowrap;padding:9px 10px}.bf-btn{padding:5px 12px}.bf-hide{display:none}.bf-show{display:inline}.topo .wrap{height:56px}.logo{font-size:19px}.topo-btn{padding:8px 16px;font-size:14px}}
 /* faixa topo */
 .faixa{background:var(--amarelo);color:var(--escuro);text-align:center;font-weight:700;font-size:15px;padding:10px 16px}
 .faixa a{color:var(--escuro)}
@@ -161,7 +174,15 @@ footer a{color:rgba(255,255,255,.85)}
 </head>
 <body>
 
-<div class="faixa">Baixe grátis e teste por 7 dias. <a href="#baixar" class="cta">Baixar agora →</a></div>
+<div class="bf" id="bf">
+  <span class="bf-tag">BLACK FRIDAY</span>
+  <span class="bf-sep">|</span>
+  <span class="bf-txt"><span class="bf-hide">Baixe e teste</span><span class="bf-show">Teste</span> <b>7 dias grátis</b></span>
+  <span class="bf-sep bf-hide">|</span>
+  <span class="bf-fim bf-hide">Até 1º de dezembro</span>
+  <a href="#baixar" class="cta bf-btn">Aproveite</a>
+</div>
+<nav class="topo"><div class="wrap"><span class="logo">Atualiza <b>40+</b></span><a href="#baixar" class="cta topo-btn">Baixar grátis</a></div></nav>
 
 <header class="hero">
   <div class="wrap">
@@ -321,6 +342,7 @@ footer a{color:rgba(255,255,255,.85)}
 
 <script>
 (function(){
+  try{if(new Date()>new Date('2026-12-02T00:00:00-03:00')){var b=document.getElementById('bf');if(b)b.remove();}}catch(e){}
   var IOS='https://apps.apple.com/br/app/id6826685196';
   var AND='https://play.google.com/store/apps/details?id=br.com.euexpertdigital.atualiza40';
   var ua=navigator.userAgent||'';
